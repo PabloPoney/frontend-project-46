@@ -1,32 +1,15 @@
-import _ from 'lodash';
 import { makePathtoObj } from './parsers.js';
+import { makeDiffTree } from './makeTree.js';
+import makeDiffStr from './DiffTreetoStr.js';
 
 const genDiff = (strPath1, strPath2) => {
   const obj1 = makePathtoObj(strPath1);
   const obj2 = makePathtoObj(strPath2);
 
-  const keys1 = _.keys(obj1);
-  const keys2 = _.keys(obj2);
+  const diffTree = makeDiffTree(obj1, obj2);
+  const diffStr = makeDiffStr(diffTree);
 
-  const unicKeys = _.sortBy(_.union(keys1, keys2));
-
-  const result = unicKeys.reduce((acc, item) => {
-    if (item in obj1) {
-      if (item in obj2) {
-        if (obj1[item] === obj2[item]) {
-          // there are identical in two objects
-          return `${acc}   ${item}: ${obj1[item]}\n`;
-        }
-        // different properties
-        return `${acc} - ${item}: ${obj1[item]}\n + ${item}: ${obj2[item]}\n`;
-      }
-      // is only in the first
-      return `${acc} - ${item}: ${obj1[item]}\n`;
-    }
-    // is only in the second
-    return `${acc} + ${item}: ${obj2[item]}\n`;
-  }, '');
-  return `{\n${result}}`;
+  return diffStr;
 };
 
 export default genDiff;
