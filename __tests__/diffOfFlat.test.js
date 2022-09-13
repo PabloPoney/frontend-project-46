@@ -71,4 +71,8 @@ test('Diff bettwen two nested JSON', () => {
   expect(genDiff('__fixtures__/nestedFile1.JSON', '__fixtures__/nestedFile2.JSON')).toBe(expectNestedObj);
 });
 
+test('Diff bettwen two nested yaml', () => {
+  expect(genDiff('__fixtures__/nestedFile1.yaml', '__fixtures__/nestedFile2.yaml')).toBe(expectNestedObj);
+});
+
 // NODE_OPTIONS=--experimental-vm-modules npx jest

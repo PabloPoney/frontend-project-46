@@ -1,6 +1,6 @@
 import { makePathtoObj } from './parsers.js';
 import { makeDiffTree } from './makeTree.js';
-import makeDiffStr from './DiffTreetoStr.js';
+import makeDiffStr from './stylish.js';
 
 const genDiff = (strPath1, strPath2) => {
   const obj1 = makePathtoObj(strPath1);
