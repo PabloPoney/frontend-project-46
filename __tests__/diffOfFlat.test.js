@@ -63,8 +63,12 @@ test('Diff bettwen two flat yml', () => {
   expect(genDiff('__fixtures__/file1.yml', '__fixtures__/file2.yml')).toBe(expectFlatObj);
 });
 
+test('Diff bettwen two flat yaml', () => {
+  expect(genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml')).toBe(expectFlatObj);
+});
+
 test('Diff bettwen two nested JSON', () => {
-  expect(genDiff('__fixtures__/deepObj1.JSON', '__fixtures__/deepObj2.JSON')).toBe(expectNestedObj);
+  expect(genDiff('__fixtures__/nestedFile1.JSON', '__fixtures__/nestedFile2.JSON')).toBe(expectNestedObj);
 });
 
 // NODE_OPTIONS=--experimental-vm-modules npx jest
