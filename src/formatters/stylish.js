@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import {
   getChildren, getKey, getStatus, getValue,
-} from './makeTree.js';
+} from '../makeTree.js';
 
 const makeObjToStr = (data, depth) => {
   if (!_.isObject(data)) return data;

@@ -10,7 +10,7 @@ const parsers = {
 
 const pickParser = (data, format) => parsers[format](data);
 
-export const getFullPath = (strPath) => path.resolve(process.cwd(), strPath);
+const getFullPath = (strPath) => path.resolve(process.cwd(), strPath);
 
 export const readFile = (strPath) => {
   const data = fs.readFileSync(getFullPath(strPath), 'utf-8');
