@@ -1,8 +1,10 @@
 import makeDiffStr from './stylish.js';
-import iter from './plain.js';
+import makeDiffStr2 from './plain.js';
+import makeDiffStr3 from './json.js';
 
 const pickFormat = (format, tree) => {
-  if (format === 'plain') return iter(tree);
+  if (format === 'plain') return makeDiffStr2(tree);
+  if (format === 'json') return makeDiffStr3(tree);
   return makeDiffStr(tree);
 };
 
